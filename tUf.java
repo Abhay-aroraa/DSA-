@@ -4,7 +4,7 @@ import java.util.List;
 public class tUf {
   public List<String> findPath(int[][] m, int n){
      if(m[0][0] == 0){
-      return 
+    return null;
     }
   }
 
@@ -20,28 +20,27 @@ public class tUf {
   }
 }
 
-// class Node {
-// int data;
-// Node next;
-// Node back;
-// Node child;
+class Node {
+int data;
+Node next;
+Node back;
+Node child;
 
-// // Constructor with all parameters
-// Node(int data, Node next, Node back, Node child) {
-// this.data = data;
-// this.next = next;
-// this.back = back;
-// this.child = child;
-// }
 
-// // Constructor with only data (rest null)
-// Node(int data) {
-// this.data = data;
-// this.next = null;
-// this.back = null;
-// this.child = null;
-// }
-// }
+Node(int data, Node next, Node back, Node child) {
+this.data = data;
+this.next = next;
+this.back = back;
+this.child = child;
+}
+
+Node(int data) {
+this.data = data;
+this.next = null;
+this.back = null;
+this.child = null;
+}
+}
 
 // public class tUf {
 // public static Node Convert(int[] arr) {
