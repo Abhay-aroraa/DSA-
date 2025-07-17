@@ -1,46 +1,72 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 public class tUf {
-  public List<String> findPath(int[][] m, int n){
-     if(m[0][0] == 0){
-    return null;
-    }
-  }
 
   public static void main(String[] args) {
-    int[][] maze = { { 1, 0, 0, 0 }, { 1, 1, 0, 1 }, { 1, 1, 0, 0 }, { 0, 1, 1, 1 } };
-    int n = 4;
+    int[] nums = { 5, 10, -5 };
 
-   List<String> result = new ArrayList<>();
-     char[][] board = new char[n][n];
+    Stack<Integer> stack = new Stack<>();
+    int ans[] = new int[stack.size()];
 
+    for (int i = 0; i < nums.length; i++) {
 
+      boolean alive = true;
+      while (!stack.isEmpty() && nums[i] < 0 && stack.peek() > 0) {
+        int top = stack.peek();
+
+        if (top < -nums[i]) {
+          stack.pop();
+        } else if (top == -nums[i]) {
+          stack.pop();
+          alive = false;
+          break;
+        } else {
+
+          alive = false;
+          break;
+
+        }
+
+      }
+
+      if (alive) {
+        stack.push(nums[i]);
+      }
+
+    }
+
+    for (int i = 0; i < stack.size(); i++) {
+      ans[i] = stack.get(i);
+    }
+
+    System.out.println(Arrays.toString(ans));
 
   }
 }
 
-class Node {
-int data;
-Node next;
-Node back;
-Node child;
+// class Node {
+// int data;
+// Node next;
+// Node back;
+// Node child;
 
+// Node(int data, Node next, Node back, Node child) {
+// this.data = data;
+// this.next = next;
+// this.back = back;
+// this.child = child;
+// }
 
-Node(int data, Node next, Node back, Node child) {
-this.data = data;
-this.next = next;
-this.back = back;
-this.child = child;
-}
-
-Node(int data) {
-this.data = data;
-this.next = null;
-this.back = null;
-this.child = null;
-}
-}
+// Node(int data) {
+// this.data = data;
+// this.next = null;
+// this.back = null;
+// this.child = null;
+// }
+// }
 
 // public class tUf {
 // public static Node Convert(int[] arr) {
